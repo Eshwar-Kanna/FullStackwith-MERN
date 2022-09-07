@@ -1,0 +1,27 @@
+
+In the console   
+
+1.Installing express library 
+      npm install express
+
+
+
+
+
+
+𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬
+
+              const x = require("express") ;
+              const  app = x() ;
+              function kanna() {
+                  console.log('hlo u hit the server')
+                               }
+              app.listen(5000);
+              app.get("/" , kanna)
+
+
+
+
+    
+
+      
