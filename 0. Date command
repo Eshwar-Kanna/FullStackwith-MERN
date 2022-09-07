@@ -1,0 +1,25 @@
+
+
+
+In the console 
+
+npm init 
+
+npm install child_process
+
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+        const {exec} = require("child_process") ;
+        function lw (err , stdout , stderr) {
+          console.log(stdout)  
+        }
+        exec ( "date" ,lw )
+        
+        
+        
+in the console  
+
+   node index.js
