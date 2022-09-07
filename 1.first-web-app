@@ -1,15 +1,14 @@
 
 In the console   
 
-1.Installing express library 
-      npm install express
+1.Installing express library     :    npm install express
+2. Initializing the folder       :    npm init
 
 
 
 
 
-
-𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
 
               const x = require("express") ;
               const  app = x() ;
@@ -21,7 +20,9 @@ In the console
 
 
 
+In the console 
 
+run file using node  :  node index.js
     
 
       
