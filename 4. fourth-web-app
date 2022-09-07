@@ -1,0 +1,78 @@
+
+npm init
+npm install express    child_process
+
+
+
+
+
+𝐦𝐲𝐝𝐨𝐜𝐤𝐞𝐫.𝐡𝐭𝐦𝐥
+
+
+          <html>
+              <form action="/data" method="get" />
+          enter x <input  name = "x" />
+          enter y <input  name = "y" />
+          enter  operator <input  name = "o" />
+          <button type="submit" >submit</button>
+              </form>
+          </html>
+          
+          
+
+
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+                const express = require('express');
+                const app = express();
+                const {exec} = require("child_process");
+
+                function init() {
+                    console.log('server started')
+                }
+
+
+
+                function lw(err,stdout , stderr) {console.log(stdout)}
+
+                app.use(express.urlencoded({extended:true}))
+
+                app.get("/data" , function(req,res) {
+                    const myx = req.query.x
+                    const myy = req.query.y
+                    const myo = req.query.o
+
+                    if (myo == "sum") {
+                        let output = Number(myx) + Number(myy) ;
+                        res.send("sum : " + output)
+                    }
+                    else if (myo == "sub") {
+                        let output =  Number(myx) - Number(myy)
+                        res.send("diff :" + output)
+                    }
+                    else if (myo == "mul") {
+                       let output =  Number(myx) * Number(myy)
+                       res.send("mul :" + output)
+
+                    }
+                })
+                app.listen(5000 , init)
+                app.get("/python" , function(req,res){
+                    res.sendFile(__dirname + "/mydocker.html")
+
+                })
+                app.get("/date" ,function(req , res) {
+                    cdata = req.query.data
+                    exec(cdata , lw)
+                    res.send(cdata)
+                })
+
+
+
+
+
+
+   node index.js
