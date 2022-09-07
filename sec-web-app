@@ -1,0 +1,48 @@
+
+In the Console  
+
+1.  install  express   : npm install express
+2.  install child_process  : npm install child_process
+3.  initializing the folder  : npm init
+
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+                const express = require('express');
+                const app = express();
+
+                const { exec } = require('child_process');
+
+                function fun1() {
+                    console.log ('server started')
+                }
+                function fun2(req,res){
+                    res.send("<h1> this is Home Page </h1>")
+                }
+                function fun3(req,res){
+                    res.send("<h1> this is about Page </h1>")
+                }
+                function fun4(req,res){
+                    res.send("<h1> this is contact Page </h1>")
+                }
+                function fun5(req,res){
+                    res.send("<h1> this is support Page </h1>")
+                }
+                function fun6(req,res) {
+                    res.send("<h1>connected to hellopage</h1>")
+                }
+                app.get('/' , fun2)
+                app.listen(3000 , fun1)
+                app.get("/contact" , fun4)
+                app.get("/support" , fun5)
+                app.get("/about" , fun3)
+                app.get("/hello" , fun6)
+                
+                
+                
+                
+                
+ In the console 
+ 
+ run the file using node  :  node index.js
