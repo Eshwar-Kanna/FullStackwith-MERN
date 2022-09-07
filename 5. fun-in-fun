@@ -1,0 +1,68 @@
+
+npm init
+
+npm install express   child_process  fs
+
+
+𝙞𝙣𝙙𝙚𝙭.𝙟𝙨
+
+
+                const express = require("express")
+
+                const app = express()
+                const {exec} = require("child_process")
+                const fs = require("fs")
+
+
+                function startserver(){
+                    console.log("server started.....")
+                }
+                function kanna(err,stdout , stderr){
+                    console.log(stdout)
+                }
+                function command(req, res) {
+                let cdata = req.query.cmd
+
+                    exec(cdata , kanna)
+                    res.send("u reached  " + cdata)
+                }
+                function form(req,res) {
+                    res.sendFile(__dirname + "/docker.html")
+                }
+
+                function filedata(req , res) {
+                    let data = "client ip :" + req.ip + "method :" + req.method 
+                    fs.writeFile("lw.txt" , data , {flag : 'a+' }, kanna)
+                console.log(data)
+                }
+                app.listen(4000 , startserver)
+
+                app.get("/final" , command)
+                app.get("/" ,form)
+                app.get("/file" , filedata )
+                
+                
+  𝐝𝐨𝐜𝐤𝐞𝐫.𝐡𝐭𝐦𝐥
+  
+
+         <html>
+              <form action = "/final" >
+                    <select   name = cmd >
+                        <option  value = "date">current date</option>
+                        <option value = "cal" > current calender</option>
+                        <option value = "ls" > list all files in the folder</option>
+                    </select>
+                    </br>
+                    <!--     type command <input  name = "cmd" /> -->
+                    <input type = "submit" />
+
+              </form>
+
+        </html>
+                
+                
+                
+                
+                
+                
+                
