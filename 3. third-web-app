@@ -1,0 +1,68 @@
+ In the console
+ 
+ 
+npm install express 
+
+npm init
+
+
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+
+
+const express = require('express');
+const app = express() ;
+
+function init(){
+    console.log("server started")
+}
+app.listen(4000 , init)
+app.get("/form" , function(req,res){
+    res.sendFile(__dirname + "/myform.html");
+})
+app.use(express.urlencoded({extended:true}))
+/* app.get("/sum" , function(req,res){
+    const first = req.query.x ;
+    const second = req.query.y ;
+    let z = Number(first) + Number(second) ;
+    res.send("sum is " + z)
+*/
+app.post("/form" , function(req,res){
+    const first = req.body.x ;
+    const second = req.body.y ;
+    let z = Number(first) + Number(second) ;
+    res.send("sum is " + z)
+})
+
+
+
+
+
+𝐦𝐲𝐟𝐨𝐫𝐦.𝐡𝐭𝐦𝐥
+
+
+
+
+          <html>
+              <body>
+                  <!-- <form  action = "/sum"   method = "GET"> -->
+                  <form  action = "/form"   method = "post">    
+                  x <input   name = 'x' />
+                  y <input   name = 'y' />
+                  <button type = "submit" > submit </button>
+                  </form>
+              </body>
+          </html>
+          
+          
+          
+          
+          
+          
+          
+          
+ In th console run   :  node index.js
+
