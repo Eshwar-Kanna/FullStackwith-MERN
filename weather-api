@@ -1,0 +1,45 @@
+
+
+
+npm init
+npm install express  https
+
+
+
+𝙞𝙣𝙙𝙚𝙭.𝙟𝙨
+
+
+              const express = require("express")
+              const app = express()
+              const https = require("https")
+
+              function kanna(){
+                  console.log("server started")
+              }
+              function lw(req ,res){
+                  const wurl = "https://api.openweathermap.org/data/2.5/weather?lat=17.387140&lon=78.491684&appid=c20e7a2bcf8c7d88067e175c5b70d49b"
+
+              https.get(wurl , function(response) {
+                  response.on("data" , function(mydata) {
+                      const wdata = JSON.parse(mydata)
+
+                      const lat = wdata.coord.lat
+                      const pressure = wdata.main.pressure
+
+
+
+                      console.log("lattitude: " + lat +"\n" + "pressure :" + pressure )
+                      res.send(wdata)
+                  })
+              })
+              }
+              app.listen(2000 , kanna)
+              app.get("/" , lw)
+              
+              
+              
+              
+       node index.js 
+       
+       
+       
