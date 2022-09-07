@@ -1,0 +1,32 @@
+
+
+
+
+
+launch an instance in aws 
+connect to instance using ssh in gitbash or connect in aws 
+
+         in gitbash 
+                    ssh -i <provide key(.pem) >  ec2-user@ <ipaddress> 
+
+                    sudo su - root
+                    dnf install nodejs:16
+                    mkdir webapp 
+                    cd webapp
+                    npm init
+                    yum install vim
+
+                vim index.js
+                        let x = 5 ;
+                        console.log(x) ;
+
+                node index.js
+
+
+
+// nodemon   is the tool and command that auto restart program as code changes but only if initially run code terminal not IDE 
+        to run even in terminal we update package.json file      ie. add a line in it         start : "node index.js"   //
+
+
+
+          // then use      npm start     command  instead    node index.js     //
