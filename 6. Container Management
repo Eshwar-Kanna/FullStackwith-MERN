@@ -1,0 +1,99 @@
+
+In  the console 
+    npm init 
+    npm install express  child_process
+
+
+𝐦𝐲𝐝𝐨𝐜𝐤𝐞𝐫.𝐡𝐭𝐦𝐥
+
+    <html>
+            <form action = "/run"  method ="GET" >
+                    <h1> Launch an Instance </h1>
+
+
+
+            enter ur OSname <input  name = "osname" />
+            enter ur IMGname <input name = "imgname" />
+
+            <button type = "submit" > submit </button>
+            <br/>
+            <br/>
+            <a href = "http://public IP :3000/ps" > click here to list containers </a>
+            </form>
+
+    </html>
+
+
+
+
+
+𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬
+
+
+              const express = require("express")
+               const app = express()
+               const {exec} = require("child_process")
+
+              app.listen(3000 , () => {console.log("server started")})
+
+              app.get("/" , (req,res) => {
+                      res.sendFile (__dirname + "/mydocker.html")
+                      console.log ("reached to formfile")
+              })
+
+              function kanna(err , stdout , stderr){
+                              console.log(stdout)
+                              }
+
+              app.get("/run" , (req ,res) => {
+                      const cimage = req.query.imgname ;
+                      const OSname = req.query.osname ;
+               exec('docker run -dit  --name' + " " + OSname + " " + cimage , (err , stdout , stderr) => {
+                                      if (!err){
+                                              res.write( "<h1> Launched with ID : "+ " " + stdout + "</h1>") }
+                                      else {
+                                              res.write("<h1><pre>" + stderr + "</pre></h1>" )}
+                              res.send()
+                      })
+              })
+
+              app.get("/ps" , (req , res) => {
+                exec( "docker ps " , (err , stdout ,stderr) => {res.send("<pre><h1>" + stdout) + "</h1></pre>" })
+              // exec( "docker ps  | tail -n +2 " , (err , stdout ,stderr) => {res.send(stdout) })
+
+                       /*  exec( "docker ps  | tail -n +2  | awk '{ print $2 , $4 , $5 , $6 , $7 , $10 } ' " , (err , stdout ,stderr) => {
+                              // res.send("<pre>" + stdout + "</pre>"); 
+                              res.send("<pre>" + stdout.split("\t") + "</pre>")} )
+                      */
+
+              /*
+                                       exec( "docker ps  | tail -n +2 " , (err , stdout ,stderr) => {
+
+              let a = stdout.split("\n") ;
+              res.write("<table border = '5' align = 'center' width = '80%' >");
+              res.write("<tr> <th> Container ID </th> <th> Image Name </th> <th> command </th> <th> container Name </th> </tr> ")
+              a.forEach( (cdetails) => {
+
+                      cinfo = cdetails.trim().split(/\s+ /)
+                      console.log(cinfo)
+                      res.write (" <tr>" + "<td"> + cinfo[0] + "</td"> + "<td"> + cinfo[1] + "</td"> + "<td"> + cinfo[2] + "</td">"<td"> + cinfo[cinfo.length-1] + "</td"> + "</tr>")
+
+                      })      
+
+                      res.write("</table>")
+                      res.send()
+
+                      })
+              */
+              })
+              
+              
+              
+              
+  In the console 
+        node server.js  & 
+              
+              
+              
+
+                           
