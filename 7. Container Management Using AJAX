@@ -1,0 +1,136 @@
+
+In the console  
+
+      npm init 
+      npm install express  child_process
+      
+      
+
+
+𝐦𝐲𝐝𝐨𝐜𝐤𝐞𝐫.𝐡𝐭𝐦𝐥
+
+
+        <script>
+
+        function lw() {
+
+        cn = document.getElementById("incname").value ;
+        ci = document.getElementById("incimage").value ;
+
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            document.getElementById("crun").innerHTML =
+            this.responseText;
+          }
+          xhttp.open("GET", "http://13.235.48.125:3000/run?imgname=" +ci + "&osname="+cn);
+          xhttp.send();
+        }
+
+                function lwps() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            document.getElementById("cps").innerHTML =
+            this.responseText;
+          }
+          xhttp.open("GET", "http://13.235.48.125:3000/ps");
+          xhttp.send();
+        }
+
+
+
+
+                function lwdel() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            document.getElementById("cdel").innerHTML =
+            this.responseText;
+          }
+          xhttp.open("GET", "http://13.235.48.125:3000/del");
+          xhttp.send();
+        }
+
+
+
+        </script>
+
+        <h1> Launch an Instance </h1>
+
+
+                choose Image  <select  name = "imgname"  id = "incimage" >
+                                        <option>  centos </option>
+                                        <option> ubuntu </option>
+                            </select>
+
+                            <br />
+                Enter ur OSname <input  name = "osname"  id = "incname" />
+
+                         <button  onclick = "lw()" >  Launch </button>
+                         <button onclick = "lwps()" > Refresh </button>
+                         <button onclick = "lwdel()" > Reset  </button>
+
+
+
+
+                        <div id = "crun" style = "color:red" > launched container </div>
+                        <div id = "cps"  style = "color:blue"> container list </div>
+                        <div id = "cdel"  style = "color:pink"> Remove all containers </div>
+
+
+
+
+
+
+𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬 
+
+
+               const express = require("express")
+               const app = express()
+               const {exec} = require("child_process")
+
+              app.listen(3000 , () => {console.log("server started")})
+
+              app.get("/" , (req,res) => {
+                      res.sendFile (__dirname + "/mydocker.html")
+                      console.log ("reached to formfile")
+              })
+
+              function kanna(err , stdout , stderr){
+                              console.log(stdout)
+                              }
+
+              app.get("/run" , (req ,res) => {
+                      const cimage = req.query.imgname ;
+                      const OSname = req.query.osname ;
+
+                      exec('docker run -dit  --name' + " " + OSname + " " + cimage , (err , stdout , stderr) => {
+                                      if (!err){
+                                              res.write( "<h1> Launched with ID : "+ " " + stdout + "</h1>") }
+                                      else {
+                                              res.write("<h1><pre>" + stderr + "</pre></h1>" )}
+                              res.send()
+                      })
+              })
+
+              app.get("/ps" , (req , res) => {
+                exec( "docker ps " , (err , stdout ,stderr) => {res.send("<pre><h1>" + stdout) + "</h1></pre>" })
+              })
+
+              app.get("/del" , (req,res) => {
+                      exec("docker rm -f  $(docker ps -a -q )" , (err , stdout , stderr) => { res.send("<pre><h1>" + stdout) + "</h1></pre>" })
+              })
+
+
+
+
+
+
+
+
+
+In the console 
+
+    node server.js &
+
+
+
+~
