@@ -1,0 +1,15 @@
+
+
+
+Installation of MongoDB 
+
+www.mongodb.com     ->    Products   ->       community Server   ->     On-Premises       ->    Download and install   
+
+link to download     ->           https://www.mongodb.com/try/download/enterprise
+
+To change mongoDB Startup from Automatic  to manual   ->  open Services app in windows   -  select  mongoDB    -  open its Properties  - set Startup to maual 
+
+
+install compass from tools  to run MongoDB in GUI   ->  https://www.mongodb.com/try/download/compass
+
+install shell from tools to run MongoDB in CLI   and extract it into  mongoDB folder   ->    https://www.mongodb.com/try/download/shell    
