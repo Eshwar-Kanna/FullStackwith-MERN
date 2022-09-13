@@ -1,0 +1,47 @@
+
+In the console
+
+          npx  create-react-app   firstreactapp
+
+          cd firstreactapp
+
+          npm start
+          
+          
+ 
+ 𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+ 
+ 
+               <!DOCTYPE html>
+              <html lang="en">
+                <head>
+                  <title>Myweb app </title>
+                </head>
+                <body>
+                      <div id="root"></div>
+
+                </body>
+              </html>
+
+ 
+ 
+ 
+ 𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+ 
+ 
+
+             import React from 'react';
+            const ReactDOM = require("react-dom")
+
+            ReactDOM.render(
+            <h1>
+               <h1>kanna </h1> 
+               <p> This is Para</p>
+               <a href = ""> click here</a>
+            </h1> , 
+            document.getElementById('root'));
+            
+            
+            
+  We can use only one html tag component  in  JSX    hence  written  Multi Tags ( h1 , p , a )  inside a Single tag  ( h1 )  
+             
