@@ -1,0 +1,77 @@
+In the Console
+
+
+      npx create-react-app  sec_web_app
+      cd sec_web_app
+      npm start
+      
+   add this folder in Visual Studio Code  for better Practice  in writting the below code 
+
+𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+
+
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+            <h1> MywebApp </h1>
+            </head>
+            <body>
+                 <div id="root"></div>
+
+                </body>
+          </html>
+
+
+
+
+
+𝐚𝐩𝐩.𝐣𝐬
+
+
+          const name = "eshwar" ;
+          const number = 1234 ;
+
+          function lw() {
+            return "this is first function named lw"
+          }
+          function kanna() {
+            return "this is the second function named kanna" 
+          }
+          export default name
+          export {lw , kanna}
+          
+          
+          
+          
+          
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬 
+
+
+            import React from 'react';
+            import ReactDOM from 'react-dom'
+            import App from './App';
+            import  {lw , kanna}   from "./App.js"
+
+            var lname = "rebal star"
+            var fname = "prabhas"
+            var date = new Date()
+            var myyear = date.getFullYear()
+            var month = date.getMonth()
+            var  color = {color:'pink'}
+            var image = "https://th.bing.com/th/id/OIP.ttIaAn8vVWsgTIk1IkpoyAHaLH?pid=ImgDet&rs=1"
+            ReactDOM.render(
+            <div> 
+              <div>{lw()}</div>
+              <p><img width = "100px"  height = "100px"  src = {image} /></p>
+              <p> Iam MR {fname + " " + lname}</p>
+              <a  href = "" > click here </a>
+              <a style = {color}> the current month {month} and Year {myyear}</a>
+              <div> {kanna()}</div>
+             </div> ,
+             document.getElementById("root")
+            );
+            
+            
+            
+            
+            
