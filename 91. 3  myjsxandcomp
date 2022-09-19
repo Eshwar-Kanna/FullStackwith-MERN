@@ -1,0 +1,124 @@
+
+
+In the Console 
+
+
+        npx create-react-app   myjsxandcomp
+        cd myjsxandcomp
+        npm start
+        
+        add folder to VSC
+        
+        
+        
+        𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+                        
+                        
+                        <!DOCTYPE html>
+                        <html lang="en">
+                          <head>
+
+                            <title>Jsx and component </title>
+                          </head>
+                          <body>
+                                <input id = "in1" name = "n" placeholder="enter ur name" />
+                                <div id="root"></div>
+
+                          </body>
+                        </html>
+
+
+            
+              
+        
+        
+        𝐚𝐩𝐩.𝐣𝐬
+        
+        
+
+                    function One(props){
+                      return (
+                      <div>
+                        <p  className ="style1"> My name is  {props.name}</p>
+                        <p  className="style1" > lives in {props.place}</p>
+                        <p className ="style1" > are u looking for  {props.course}</p>
+
+                      </div>
+                      )
+                    }
+
+                    function Two(props) {
+                      return(
+                    <div>
+                      <p className="style2" > the amount for the course is {props.amount} </p>
+                      <p className="style2" > the status of your admission is {props.status} </p>
+                    </div>)
+                    }
+                    export {One , Two}
+
+        
+        
+        
+        
+        𝐢𝐧𝐝𝐞𝐱.𝐜𝐬𝐬
+        
+
+
+                    .style1{
+                      color: blue;
+                      font-size: medium;
+                      background-color: aquamarine;
+                    }
+
+                    .style2{
+                      color: blueviolet;
+                      font-size: x-large;
+                      background-color: bisque;
+                    }
+
+        
+        
+        
+        𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+        
+        
+        
+                        import React from 'react';
+                        import ReactDOM from 'react-dom/client';
+                        import './index.css';
+                        import {One , Two} from './App.js';
+
+                        const root = ReactDOM.createRoot(document.getElementById('root'));
+                        root.render(
+                          <div>   
+                            <One
+                                name = "kanna" 
+                                place = "warangal"
+                                course = "AI"
+
+
+                            />
+                          <Two 
+                                  amount ="500$"
+                                  status = "enrolled"
+
+                          />
+
+
+
+
+                        <One
+                                name = "tom" 
+                                place = "hyd"
+                                course = "ML"
+
+
+                            />
+                          <Two 
+                                  amount ="800$"
+                                  status = "pending"
+
+                          />
+                          </div>
+
+                            );
