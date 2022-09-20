@@ -1,0 +1,191 @@
+
+
+In the Console 
+        npx create-react-app  mappingapp
+        cd mappingapp
+        npm start
+        
+        
+        
+ 𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+ 
+ 
+               <!DOCTYPE html>
+              <html lang="en">
+                <head>
+
+                  <title>Mapping App</title>
+                </head>
+                <body>
+                  <link rel = "stylesheet"   href=" styles.css">
+                  <div id="root"></div>
+
+                </body>
+              </html>
+              
+              
+              
+ 𝐬𝐭𝐲𝐥𝐞𝐬.𝐜𝐬𝐬
+ 
+
+                     .box{
+                        border: 20px;
+                        background-color: aqua;
+                        height: 300px;
+                        width: 500px;
+                        border-radius: 20px;
+                        position: relative;
+                        left: 400px;
+                        top: 40px;
+                        margin: 30px;
+                        }
+
+                        .name{
+                          position: absolute;
+                          left: 40px;
+                          top: 220px;
+                          color: navy;
+
+                        }
+                        .number{
+                          position: absolute;
+                          left: 100px;
+                          top: 150px;
+                          color: black;
+
+                        }
+                        .valid{
+                          position: absolute;
+                          left: 50px;
+                          top: 100px;
+                          color:green;
+
+                        }
+                        .expiry{
+                          position: absolute;
+                          left: 300px;
+                        top: 100px;
+                        color: green;
+                        }
+
+                        .bank{
+                          position: absolute;
+                          left: 30px;
+                          color:orangered;
+
+                        }
+                        .image{
+                          position: absolute;
+                          left: 410px;
+                          top: -20px;
+                          border-radius: 50%;
+                          width: 100px;
+                          height: 100px;
+
+                        }
+
+
+                        .cvv{
+                          position: absolute;
+                          left: 350px;
+                         color: brown;
+                          top: 220px;
+                        }
+    
+    
+    
+    
+    𝐀𝐩𝐩.𝐣𝐬
+    
+    
+    
+                     const data = [
+                      {
+                    name : "SACHIN TENDULKAR" ,
+                    number : "2222 5555 7777 4444" ,
+                    bank : "NATIONAL BANK OF INDIA" ,
+                    expiry : "01/28" ,
+                    valid : "05/22" ,
+                    cvv : "502" ,
+                    logo : "https://th.bing.com/th/id/R.30e6c08e3e3a894fa804c051e84a2778?rik=L5Rk0HgsW8Jung&riu=http%3a%2f%2fwww.india.com%2fwp-content%2fuploads%2f2016%2f11%2fBanks-1.jpg&ehk=5mplkUmW4qZwBzMsJzrSwZysoGOm8v5oGakUfKo1JMc%3d&risl=&pid=ImgRaw&r=0"
+                      }  ,
+
+                    {
+                      name :" RAVINDRA JADEJA" ,
+                    number : "1111 5555 7777 4444" ,
+                    bank : "PUNJAB CENTRAL BANK",
+                    expiry : "06/28",
+                    valid : "09/22",
+                    cvv : "509",
+                    logo : "https://www.bing.com/th?id=OIP.4rWonfB5CfyCpLt5f2u5lwHaGc&w=268&h=233&c=8&rs=1&qlt=90&o=6&dpr=1.41&pid=3.1&rm=2"
+                    }
+
+                    ]
+
+                    export  default data
+
+
+
+
+create a folder  Naming  "components" in src  
+create a file "card.jsx"  in components
+
+
+𝐜𝐚𝐫𝐝.𝐣𝐬𝐱
+
+
+
+
+
+              function Kanna(props) {
+                  return (
+                    <div  className="box">
+                      <img className="image" src = {props.logo} />
+                      <h2 className="bank">{props.bank} </h2>
+                      <h1 className="number"> {props.number}</h1>
+                      <h2 className="valid"> valid from {props.valid} </h2> 
+                       <h2 className="expiry"> expires on  {props.expiry} </h2>
+                      <h2 className="name"> {props.name}</h2>
+                      <h2 className="cvv"> CVV {props.cvv}</h2>
+                    </div>
+                  );
+                }
+
+                export {Kanna} ;
+                
+                
+                
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬 
+
+                      import React from 'react';
+                      import ReactDOM from 'react-dom/client';
+                      import './index.css';
+                      import {Kanna} from  './components/card.jsx'
+                      import data from './App.js'
+
+
+                      function input(mydata){
+                        return (
+                        <Kanna  name = {mydata.name}
+                      number = {mydata.number} 
+                      bank = {mydata.bank}
+                      expiry = {mydata.expiry}
+                      valid = {mydata.valid}
+                      cvv = {mydata.cvv}
+                      logo = {mydata.logo}  />
+                        )
+                      }
+
+                      const root = ReactDOM.createRoot(document.getElementById('root'));
+                      root.render(
+                      <div>
+                      {data.map(input)}
+
+                      </div>
+                        )
+
+  
+
+
+
+
