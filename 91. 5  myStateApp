@@ -1,0 +1,113 @@
+
+
+
+In the console  
+        
+          npx create-react-app mystateapp
+          cd mystateapp
+          npm start
+          
+          
+          
+ 𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+ 
+ 
+             <!DOCTYPE html>
+            <html lang="en">
+              <head>
+
+                <title>State App</title>
+              </head>
+              <body>
+
+                <div id="root"></div>
+
+              </body>
+            </html>
+
+ 
+  
+ 
+  
+ 𝐚𝐩𝐩.𝐣𝐬𝐱
+ 
+ 
+ 
+ 
+ 
+ 
+
+                           import React , {useState} from  "react"
+
+                          let isLineT = false ;
+
+
+
+
+                          function Myheader(){
+                              const  mydata = {textDecoration :"line-through"}
+                          var [ isLineT , f] = useState()
+                          function With(){
+                               f(isLineT= true) ; 
+                          }
+                          function Without(){
+                              f(isLineT = false) ;
+
+                          }
+
+                              return (
+                              <div>
+                                  <p style = {isLineT ? mydata : null } >  This is The data</p>
+                                  <button   onClick={With}>Click for LT</button>
+                                  <button   onClick={Without}>Click for without LT</button>
+                              </div>
+                          )
+
+                              }
+
+                          function Counter(){
+                              var [value , f] = useState(0)
+                              function start(){
+                                  f(value+1) ;
+                              }
+                              return (
+                                  <div>
+                                  <h1>{value}</h1> 
+                                  <button onClick={start}>start</button>
+                                  </div>
+                              )
+                              }
+
+
+                          export  {Myheader}
+                          export {Counter} 
+                          
+                          
+                          
+                          
+                          
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+
+
+            import React from 'react';
+            import ReactDOM from 'react-dom/client';
+            import './index.css';
+            import App  from './App';
+            import {Myheader , Counter} from './components/app.jsx';
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(
+             // <Myheader></Myheader>
+             <Counter></Counter>
+              );
+
+
+                          
+                          
+                          
+                          
+                          
+                          
+                          
