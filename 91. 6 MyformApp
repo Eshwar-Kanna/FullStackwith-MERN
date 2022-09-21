@@ -1,0 +1,212 @@
+
+In the Console
+
+
+          npx create-react-app  myformapp
+          cd myformapp
+          npm start
+          
+          
+𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+
+
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+
+                <title>Myform  App</title>
+              </head>
+              <body>
+
+                <div id="root"></div>
+
+              </body>
+            </html>
+
+
+
+
+
+𝐢𝐧𝐩𝐮𝐭.𝐣𝐬𝐱
+
+
+
+
+                      import {useState}  from "react"
+                      let myn ;
+                      function Myname(name){
+                      let [myn , setname] = useState()
+                      function start(e){
+                          myn = e.target.value 
+                          setname(myn)
+                      }
+
+                      return (
+                          <div>
+                      <p> Hey {myn}</p>
+                      <input 
+                      type = "text" 
+                      name = "n" 
+                      placeholder = "enter ur name"
+                      onChange = {start}
+                      value = {myn} />
+
+                      </div>)
+
+                      }
+
+                      function Myinput (props){
+
+
+                          return (
+                      <div>
+
+                              <input  
+                              type = {props.mytype} 
+                              name = {props.myname}
+                              placeholder = {props.myplaceholder}
+
+                          />
+
+
+                          </div>
+                          )
+
+                      }
+                      export default  Myinput 
+                      export { Myname }
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+  𝐝𝐚𝐭𝐚.𝐣𝐬
+  
+  
+  
+
+
+                import Myinput from "./input";
+
+                function Data(data){
+
+                  return (
+
+                    <div>
+
+                      <Myinput  
+                      mytype = {data.dtype}
+                      myname = {data.dname}
+                      myplaceholder = {data.dplaceholder}
+                      />
+
+
+                    </div>
+                  )
+                }
+
+                export default Data
+                
+                
+                
+                
+                
+                
+   𝐦𝐲𝐝𝐚𝐭𝐚.𝐣𝐬
+   
+   
+                           const Mydata = [
+
+
+                          { 
+                              type : "password" , 
+                              name : "p" ,
+                              placeholder : "enter ur password" ,
+
+                          } ,
+
+                          {
+                              type : "text" , 
+                              name : "o" ,
+                              placeholder : "enter ur organization" ,
+                          },
+                          {
+                              type : "time" , 
+                              name : "t" ,
+                              placeholder : "enter ur joining time " ,
+                          },
+
+                          {
+                              type : "text" , 
+                              name : "f" ,
+                              placeholder : "enter ur firstname" ,
+                          },
+                          {
+                              type : "number" ,
+                              name : "l" ,
+                              placeholder : "enter ur age"
+                          },
+                          {
+                              type : "email" ,
+                              name : "e",
+                              placeholder : "enter ur email"
+                          },
+                          {
+                              type : "tel" , 
+                              name : "k" ,
+                              placeholder : "enter ur telephone" ,
+                          },
+
+
+                          ]
+                      export default Mydata
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+    𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+    
+    
+                    import React from 'react';
+                    import ReactDOM from 'react-dom/client';
+                    import  Data from './components/data';
+                    import Mydata from './components/mydata';
+                    import {Myname} from './components/input';
+
+                    function Myf(value)
+                    {
+
+                      return(
+                        <div>
+                    <Data 
+                    dtype = {value.type}
+                    dname = {value.name}
+                    dplaceholder = {value.placeholder}
+                    />
+                        </div>
+                      )
+                    }
+                    const root = ReactDOM.createRoot(document.getElementById('root'))
+
+                    root.render(
+                    <div>
+                    <form action = "">
+                      <Myname />
+                    {Mydata.map(Myf)}
+                    <Myf type = "submit" />
+                    </form>
+                    </div>
+                    )
+                    
+                    
+                    
+                    
+                    
+                    
+               
