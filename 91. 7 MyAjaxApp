@@ -1,0 +1,81 @@
+
+
+
+In the console  
+    
+      npx create-react-app   myajaxapp
+      cd myajaxapp
+      npm start
+      
+      
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+
+
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+
+              <title>DOG API App</title>
+            </head>
+            <body>
+
+              <div id="root"></div>
+
+            </body>
+          </html>
+
+
+
+
+𝐀𝐩𝐢.𝐣𝐬
+
+                import { useState , useEffect } from "react";
+
+                function App(){
+
+
+                  const [item , Fun] = useState([]);
+                  useEffect ( () => {
+                    fetch("https://dog.ceo/api/breeds/image/random")
+
+                    .then(res => res.json())
+                    .then((result) => {
+                      Fun(result)
+                    })
+                  } ,[]) 
+                  return <img width = "300px"  src = {item.message}  />
+                }
+
+                function Api(){
+
+                  return (
+                    <div> 
+                       <h1>     API App  </h1>
+                        <App />
+                </div>
+                  )
+                }
+                export default Api
+
+
+
+
+
+
+𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+
+              import React from 'react';
+              import ReactDOM from 'react-dom/client';
+              import Api from './Api.js';
+
+
+              const root = ReactDOM.createRoot(document.getElementById('root'));
+              root.render(
+
+               <div><Api /></div>
+
+              )
