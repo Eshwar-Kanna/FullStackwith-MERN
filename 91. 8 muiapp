@@ -1,0 +1,160 @@
+
+
+In the console  
+        npc create-react-app  muiapp
+        cd muiapp
+        
+        npm install @mui/material @emotion/react @emotion/styled
+        npm install @mui/material @mui/styled-engine-sc styled-components
+
+         npm start
+         
+         
+  𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥
+  
+  
+                  <!DOCTYPE html>
+                <html lang="en">
+                  <head>
+
+                    <title>Mui App</title>
+                  </head>
+                  <body>
+
+                    <div id="root"></div>
+
+                  </body>
+                </html>
+
+  
+  
+  𝐀𝐩𝐩.𝐣𝐬
+  
+  
+                            import React from 'react';
+                            import { Button, FormGroup, Slider } from '@mui/material';
+                            import { DeleteOutline, SaveAltSharp, SaveAsRounded } from '@mui/icons-material';
+                            import { SaveRounded } from '@mui/icons-material';
+                            import ButtonGroup  from "@mui/material/ButtonGroup";
+                            import Checkbox from '@mui/material/Checkbox';
+                            import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+                            import Favorite from '@mui/icons-material/Favorite';
+                            import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+                            import BookmarkIcon from '@mui/icons-material/Bookmark';
+
+                            import Box from '@mui/material/Box';
+                            import Fab from '@mui/material/Fab';
+                            import AddIcon from '@mui/icons-material/Add';
+                            import FormControlLabel from '@mui/material/FormControlLabel';
+
+                            import TextField from '@mui/material/TextField';
+
+                            import { useState } from 'react';
+
+
+
+
+                            function Mybutton(){
+                            return <Button  startIcon = {<DeleteOutline />}  endIcon = {<SaveRounded />} variant = "outlined"> Delete </Button>
+                            }
+
+
+                            function Mycheckbox(){
+
+                                var [checked , Setchecked] = React.useState(true) 
+
+
+                                return (
+                                <FormGroup>
+
+
+                                <FormControlLabel   
+                                   control =  { <Checkbox  checked = {checked} icon={<FavoriteBorder />} checkedIcon={<SaveAltSharp />}  onChange = {(e) =>{Setchecked(e.target.checked)}  } inputProps = {{'aria-label' : 'checkbox '}}  ></Checkbox>
+                                          } label = "iam check"
+                                  />
+
+
+                                  <Checkbox disabled icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />}
+                                  />
+
+                                  <Box>
+                                  <Fab color="primary" aria-label="add">
+                                    <AddIcon />
+                                  </Fab>
+                                  </Box>
+
+
+
+
+
+
+                                </FormGroup>
+
+                                )
+                            }
+
+
+                            function Mybuttongroup(){
+                                return (
+                                    <div>
+                                  <ButtonGroup  color="secondary" aria-label="medium secondary button group">
+                                    <button>click 1</button>
+                                    <button>click2</button>
+                                    <button>click3</button>
+                                  </ButtonGroup>
+                                  </div>
+                                )
+                            }
+
+
+
+                            function Mytextfield(){
+                            return (
+                              <div>
+                            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                                  <TextField id="filled-basic" label="Filled" variant="filled" />
+                                  <TextField id="standard-basic" label="Standard" variant="standard" />
+                            </div>
+                            )
+                            }
+
+
+
+
+                            export { Mybutton , Mybuttongroup , Mycheckbox , Mytextfield}
+
+
+
+
+  
+  𝐢𝐧𝐝𝐞𝐱.𝐣𝐬
+
+
+
+                        import React from "react";
+                        import  ReactDOM  from "react-dom/client";
+
+
+                        import {Mybutton , Mybuttongroup  , Mycheckbox , Mytextfield} from "./App";
+
+
+                        const root = ReactDOM.createRoot(document.getElementById("root"))
+
+                        root.render(
+                          <div>
+                          <Mybutton />
+                          <br />
+                          <Mybuttongroup />
+                          <Mycheckbox />
+
+                          <br />
+                          <Mytextfield />
+                         </div>
+                        )
+                        
+                        
+                        
+                        
+                        
+                        
+                        
