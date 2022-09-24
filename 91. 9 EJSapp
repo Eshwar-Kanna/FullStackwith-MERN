@@ -1,0 +1,69 @@
+
+
+in the console 
+    mkdir  ejsapp
+    cd ejsapp
+    npm init
+    npm install  express  ejs
+    
+    
+    
+    
+    
+𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬
+
+
+                const express = require ("express")
+
+                const app = express()
+
+                const mydate = new Date()
+
+                const myday = mydate.getDay()
+
+                app.set("view engine" , "ejs")
+
+                app.listen( 4000 , () =>{ console.log ("server started")} )
+
+                app.get("/" , (req,res) => {
+                if (myday == 0) {
+                res.render("day" , {msg : "enjoy sunday" ,  d : myday , n: "tom"} )
+                }
+
+                else{
+                    res.render("day" , {msg : "focus on work" ,  d : myday , n:"kanna"})
+                }
+                }
+                )
+                
+                
+                
+                
+                
+  create views folder and app.ejs  in views folder              
+                
+      
+      
+      
+      
+      𝐝𝐚𝐲.𝐞𝐣𝐬
+      
+      
+      
+               <h1> welcome to the schedule</h1>
+
+
+              <%  if (d == 0) { %>
+
+              <h1 style = "color: red;" > <%= msg %> </h1>
+               <%    } else { %>
+              <h1 style = "color: blue;"> <%= msg %> </h1>
+
+              <% } %>
+
+              <h1 style ="color: aqua;" > <%= n %> </h1>
+              
+              
+              
+              
+              
